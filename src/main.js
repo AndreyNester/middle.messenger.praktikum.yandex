@@ -1,7 +1,7 @@
 import "./styles/reset.css";
 // import "./styles/variables.scss";
 
-import { renderButton } from "./components/atoms/button/renderButton.js";
+import { renderButton } from "./components/atoms";
 
 async function render() {
   // const template = await loadTemplate("/src/templates/hela.hbs");
