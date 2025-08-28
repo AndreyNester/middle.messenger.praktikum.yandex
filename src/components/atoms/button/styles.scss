@@ -12,10 +12,7 @@
   transition-duration: 0.2s;
 
   color: $accentColor;
-  &_accentColor {
-    background-color: $accentColor;
-    color: white;
-  }
+
   &:hover {
     opacity: 0.8;
   }
