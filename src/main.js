@@ -13,10 +13,11 @@ import { renderSignInPage } from "./components/pages/signInPage/renderSignInPage
 import { renderRegisterPage } from "./components/pages/registerPage/renderRegisterPage";
 import { renderUserSettingsPage } from "./components/pages/userSettingsPage/renderUserSettingsPage";
 import { rednerNotFoundPage } from "./components/pages/notFoundPage/rednerNotFoundPage";
+import { renderErrorPage } from "./components/pages/errorPage/renderErrorsPage";
 
 async function render() {
   // const template = await loadTemplate("/src/templates/hela.hbs");
-  const html = rednerNotFoundPage({});
+  const html = renderErrorPage({});
 
   document.querySelector("#app").innerHTML = html;
 }
