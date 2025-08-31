@@ -6,20 +6,28 @@ import { renderErrorPage } from "./components/pages/errorPage/renderErrorsPage";
 
 export default class App {
   constructor() {
+    const otiginPath = window.location.pathname;
+    const [_, ...cleanedPathArr] = otiginPath;
+    const cleanedOriginPath = cleanedPathArr.join("");
+
     this.state = {
-      currentPage: "signIn", // <-- "signIn" | "register" | "userSettings" | "notFoundPage" | "errorPage"
+      currentPage: cleanedOriginPath, // <-- "signin" | "register" | "usersettings" | "notfoundpage" | "errorpage"
     };
     this.appElement = document.getElementById("app");
   }
 
   render() {
     const pages = {
-      signIn: () => renderSignInPage(),
+      signin: () => renderSignInPage(),
       register: () => renderRegisterPage(),
-      userSettings: () => renderUserSettingsPage(),
-      notFoundPage: () => rednerNotFoundPage(),
-      errorPage: () => renderErrorPage(),
+      usersettings: () => renderUserSettingsPage(),
+      notfoundpage: () => rednerNotFoundPage(),
+      errorpage: () => renderErrorPage(),
     };
-    this.appElement.innerHTML = pages[this.state.currentPage]();
+    if (pages[this.state.currentPage]) {
+      this.appElement.innerHTML = pages[this.state.currentPage]();
+    } else {
+      this.appElement.innerHTML = pages["notfoundpage"]();
+    }
   }
 }
