@@ -1,12 +1,12 @@
 <form 
   action=""
-  class="{{classnames "registerForm" class}}"
+  class="{{classnames "userSettingsForm" class}}"
 >
-  <div class="registerForm__container">
-    <h2 class="registerForm__title">Регистрация</h2>
-    <div class="registerForm__fields">
+  <div class="userSettingsForm__container">
+    <h2 class="userSettingsForm__title">Регистрация</h2>
+    <div class="userSettingsForm__fields">
         {{>formField 
-            class="registerForm__field" 
+            class="userSettingsForm__field" 
             for="email" 
             inputType="email"
             title="Почта"
@@ -14,39 +14,47 @@
             required="1"
         }}
         {{>formField 
-            class="registerForm__field" 
-            for="name" 
+            class="userSettingsForm__field" 
+            for="login" 
             inputType="text"
             title="Логин"
-            inputName="name"
+            inputName="login"
             required="1"
         }}
         {{>formField 
-            class="registerForm__field" 
-            for="firstname" 
+            class="userSettingsForm__field" 
+            for="first_name" 
             inputType="text"
             title="Имя"
-            inputName="firstname"
+            inputName="first_name"
             required="1"
         }}
         {{>formField 
-            class="registerForm__field" 
-            for="lastName"
+            class="userSettingsForm__field" 
+            for="last_name"
             inputType="text"
             title="Фамилия"
-            inputName="lastName"
+            inputName="last_name"
             required="1"
         }}
         {{>formField 
-            class="registerForm__field" 
-            for="phoneNumber"
+            class="userSettingsForm__field" 
+            for="display_name"
+            inputType="text"
+            title="Имя в чате"
+            inputName="display_name"
+            required="1"
+        }}
+        {{>formField 
+            class="userSettingsForm__field" 
+            for="phone"
             inputType="tel"
             title="Телефон"
-            inputName="phoneNumber"
+            inputName="phone"
             required="1"
         }}
         {{>formField 
-            class="registerForm__field" 
+            class="userSettingsForm__field" 
             for="password"
             inputType="password"
             title="Пароль"
@@ -54,7 +62,7 @@
             required="1"
         }}
         {{>formField 
-            class="registerForm__field" 
+            class="userSettingsForm__field" 
             for="passwordRep"
             inputType="password"
             title="Пароль (еще раз)"
@@ -62,14 +70,14 @@
             required="1"
         }}
     </div>
-    <div class="registerForm__btns">
+    <div class="userSettingsForm__btns">
       {{>accentButton 
-        class="registerForm__btn" 
+        class="userSettingsForm__btn" 
         type="submit" 
         buttonText="Зарегистрироваться"
       }}
       {{>button 
-        class="registerForm__btn" 
+        class="userSettingsForm__btn" 
         type="button"
         buttonText="Войти"
       }}

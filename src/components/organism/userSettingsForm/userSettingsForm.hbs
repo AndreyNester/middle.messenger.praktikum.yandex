@@ -1,0 +1,73 @@
+<form 
+  action=""
+  class="{{classnames "registerForm" class}}"
+>
+  <div class="registerForm__container">
+    <h2 class="registerForm__title">Настройки пользователя</h2>
+    <div class="registerForm__fields">
+        {{>formField 
+            class="registerForm__field" 
+            for="email" 
+            inputType="email"
+            title="Почта"
+            inputName="email"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="name" 
+            inputType="text"
+            title="Логин"
+            inputName="name"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="firstname" 
+            inputType="text"
+            title="Имя"
+            inputName="firstname"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="lastName"
+            inputType="text"
+            title="Фамилия"
+            inputName="lastName"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="phoneNumber"
+            inputType="tel"
+            title="Телефон"
+            inputName="phoneNumber"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="password"
+            inputType="password"
+            title="Пароль"
+            inputName="password"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="passwordRep"
+            inputType="password"
+            title="Пароль (еще раз)"
+            inputName="passwordRep"
+            required="1"
+        }}
+    </div>
+    <div class="registerForm__btns">
+      {{>accentButton 
+        class="registerForm__btn" 
+        type="submit" 
+        buttonText="Сохранить"
+      }}
+    </div>
+  </div>
+</form>
