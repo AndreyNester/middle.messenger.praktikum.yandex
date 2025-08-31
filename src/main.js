@@ -11,10 +11,11 @@ import "./components/templates/register";
 
 import { renderSignInPage } from "./components/pages/signInPage/renderSignInPage";
 import { renderRegisterPage } from "./components/pages/registerPage/renderRegisterPage";
+import { renderUserSettingsPage } from "./components/pages/userSettingsPage/renderUserSettingsPage";
 
 async function render() {
   // const template = await loadTemplate("/src/templates/hela.hbs");
-  const html = renderRegisterPage({});
+  const html = renderUserSettingsPage({});
 
   document.querySelector("#app").innerHTML = html;
 }
