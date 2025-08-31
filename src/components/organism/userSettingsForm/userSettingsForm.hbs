@@ -7,6 +7,13 @@
     <div class="registerForm__fields">
         {{>formField 
             class="registerForm__field" 
+            for="avatar" 
+            inputType="file"
+            inputName="avatar"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
             for="email" 
             inputType="email"
             title="Почта"
@@ -47,18 +54,18 @@
         }}
         {{>formField 
             class="registerForm__field" 
-            for="password"
+            for="oldPassword"
             inputType="password"
-            title="Пароль"
-            inputName="password"
+            title="Старый пароль"
+            inputName="oldPassword"
             required="1"
         }}
         {{>formField 
             class="registerForm__field" 
-            for="passwordRep"
+            for="newPassword"
             inputType="password"
-            title="Пароль (еще раз)"
-            inputName="passwordRep"
+            title="Новый пароль"
+            inputName="newPassword"
             required="1"
         }}
     </div>
