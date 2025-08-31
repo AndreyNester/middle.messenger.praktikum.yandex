@@ -9,11 +9,12 @@ import "./components/organism/register";
 import "./components/templates/register";
 /////////////////////////////////////////////////////////////////
 
-import { renderSignInPage } from "./components/pages/signInPage/signInPage";
+import { renderSignInPage } from "./components/pages/signInPage/renderSignInPage";
+import { renderRegisterPage } from "./components/pages/registerPage/renderRegisterPage";
 
 async function render() {
   // const template = await loadTemplate("/src/templates/hela.hbs");
-  const html = renderSignInPage({});
+  const html = renderRegisterPage({});
 
   document.querySelector("#app").innerHTML = html;
 }
