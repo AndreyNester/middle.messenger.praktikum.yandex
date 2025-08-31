@@ -1,1 +1,14 @@
-<form action=""></form>
+<form action="" class="signInForm">
+  <div class="signInForm__container">
+    <h2>Вход</h2>
+    <div class="signInForm__fields">
+        {{>formField class="signInForm__field" for="login"}}
+        {{>formField 
+            class="signInForm__field" 
+            for="password" 
+            inputType="password"
+            title="Логин"
+        }}
+    </div>
+  </div>
+</form>
