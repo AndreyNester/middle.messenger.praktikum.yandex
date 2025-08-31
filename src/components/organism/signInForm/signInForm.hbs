@@ -2,13 +2,34 @@
   <div class="signInForm__container">
     <h2>Вход</h2>
     <div class="signInForm__fields">
-        {{>formField class="signInForm__field" for="login"}}
         {{>formField 
             class="signInForm__field" 
-            for="password" 
-            inputType="password"
+            for="name" 
+            inputType="text"
             title="Логин"
+            inputName="name"
+            required=true
         }}
+        {{>formField 
+            class="signInForm__field" 
+            for="passwor"
+            inputType="password"
+            title="Пароль"
+            inputName="password"
+            required=true
+        }}
+    </div>
+    <div class="signInForm__btns">
+      {{>accentButton 
+        class="signInForm__btn" 
+        type="submit" 
+        buttonText="Авторизоваться"
+      }}
+      {{>button 
+        class="signInForm__btn" 
+        type="button"
+        buttonText="Нет аккаунта?"
+      }}
     </div>
   </div>
 </form>
