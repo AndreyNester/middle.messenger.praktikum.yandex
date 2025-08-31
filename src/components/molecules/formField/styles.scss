@@ -1,0 +1,13 @@
+.formField {
+  border-bottom: 1px solid blue;
+  width: 100%;
+
+  &__title {
+    color: #999999;
+    font-size: 13px;
+  }
+  &__input {
+    font-style: 15px;
+    width: 100%;
+  }
+}
