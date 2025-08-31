@@ -1,4 +1,7 @@
-<form action="" class="signInForm">
+<form 
+  action=""
+  class="{{classnames "signInForm" class}}"
+>
   <div class="signInForm__container">
     <h2>Вход</h2>
     <div class="signInForm__fields">
@@ -8,15 +11,15 @@
             inputType="text"
             title="Логин"
             inputName="name"
-            required=true
+            required="1"
         }}
         {{>formField 
             class="signInForm__field" 
-            for="passwor"
+            for="password"
             inputType="password"
             title="Пароль"
             inputName="password"
-            required=true
+            required="1"
         }}
     </div>
     <div class="signInForm__btns">
