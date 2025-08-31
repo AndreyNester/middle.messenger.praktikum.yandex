@@ -1,0 +1,32 @@
+.registerForm {
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 black;
+
+  &__container {
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  &__title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  &__fields {
+    margin-top: auto;
+    flex: 1 1 auto;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
