@@ -3,5 +3,14 @@
   "singleQuote": true,
   "trailingComma": "all",
   "semi": true,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "overrides": [
+    {
+      "files": "*.hbs",
+      "options": {
+        "parser": "glimmer",
+        "singleQuote": false
+      }
+    }
+  ]
 }

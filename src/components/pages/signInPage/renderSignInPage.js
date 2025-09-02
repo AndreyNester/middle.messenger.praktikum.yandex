@@ -1,5 +1,5 @@
-import Handlebars from "handlebars";
-import signInPage from "../../templates/signInPage/signInPage.hbs?raw";
+import Handlebars from 'handlebars';
+import signInPage from './signInPage.hbs?raw';
 
 export function renderSignInPage(props) {
   const template = Handlebars.compile(signInPage);

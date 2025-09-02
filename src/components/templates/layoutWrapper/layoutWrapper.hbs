@@ -1,0 +1,13 @@
+<div class="layoutWrapper">
+  {{#if displayHeader}}
+    <header class="layoutWrapper__header"></header>
+  {{/if}}
+
+  <main class="layoutWrapper__main">
+    {{> @partial-block}}
+  </main>
+
+  {{#if displayFooter}}
+    <footer class='layoutWrapper__footer'></footer>
+  {{/if}}
+</div>
