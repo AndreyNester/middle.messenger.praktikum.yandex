@@ -1,0 +1,21 @@
+.pagePlug {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 20px;
+  }
+
+  &__description {
+    font-size: 16px;
+  }
+
+  &__mvBackLink {
+    font-size: 14px;
+  }
+}

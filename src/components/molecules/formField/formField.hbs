@@ -1,0 +1,15 @@
+{{#> label 
+    class=(classnames "formField" class)
+    titleClass=(classnames "formField__title" titleClass)
+    for=for 
+    title=title
+}}
+    {{> input 
+        placeholder=placeholder
+        class=(classnames "formField__input" inputClass)
+        type=inputType
+        id=for
+        name=inputName
+    }}
+{{/label}}
+

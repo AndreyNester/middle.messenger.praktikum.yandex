@@ -1,0 +1,80 @@
+<form 
+  action=""
+  class="{{classnames "registerForm" class}}"
+>
+  <div class="registerForm__container">
+    <h2 class="registerForm__title">Настройки пользователя</h2>
+    <div class="registerForm__fields">
+        {{>formField 
+            class="registerForm__field" 
+            for="avatar" 
+            inputType="file"
+            inputName="avatar"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="email" 
+            inputType="email"
+            title="Почта"
+            inputName="email"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="login" 
+            inputType="text"
+            title="Логин"
+            inputName="name"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="first_name" 
+            inputType="text"
+            title="Имя"
+            inputName="first_name"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="second_name"
+            inputType="text"
+            title="Фамилия"
+            inputName="second_name"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="phone"
+            inputType="tel"
+            title="Телефон"
+            inputName="phone"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="oldPassword"
+            inputType="password"
+            title="Старый пароль"
+            inputName="oldPassword"
+            required="1"
+        }}
+        {{>formField 
+            class="registerForm__field" 
+            for="newPassword"
+            inputType="password"
+            title="Новый пароль"
+            inputName="newPassword"
+            required="1"
+        }}
+    </div>
+    <div class="registerForm__btns">
+      {{>accentButton 
+        class="registerForm__btn" 
+        type="submit" 
+        buttonText="Сохранить"
+      }}
+    </div>
+  </div>
+</form>

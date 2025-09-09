@@ -1,0 +1,38 @@
+<form 
+  action=""
+  class="{{classnames "signInForm" class}}"
+>
+  <div class="signInForm__container">
+    <h2 class="signInForm__title">Вход</h2>
+    <div class="signInForm__fields">
+        {{>formField 
+            class="signInForm__field" 
+            for="name" 
+            inputType="text"
+            title="Логин"
+            inputName="name"
+            required="1"
+        }}
+        {{>formField 
+            class="signInForm__field" 
+            for="password"
+            inputType="password"
+            title="Пароль"
+            inputName="password"
+            required="1"
+        }}
+    </div>
+    <div class="signInForm__btns">
+      {{>accentButton 
+        class="signInForm__btn" 
+        type="submit" 
+        buttonText="Авторизоваться"
+      }}
+      {{>button 
+        class="signInForm__btn" 
+        type="button"
+        buttonText="Нет аккаунта?"
+      }}
+    </div>
+  </div>
+</form>

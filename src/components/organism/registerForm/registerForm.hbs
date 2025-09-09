@@ -1,0 +1,86 @@
+<form 
+  action=""
+  class="{{classnames "userSettingsForm" class}}"
+>
+  <div class="userSettingsForm__container">
+    <h2 class="userSettingsForm__title">Регистрация</h2>
+    <div class="userSettingsForm__fields">
+        {{>formField 
+            class="userSettingsForm__field" 
+            for="email" 
+            inputType="email"
+            title="Почта"
+            inputName="email"
+            required="1"
+        }}
+        {{>formField 
+            class="userSettingsForm__field" 
+            for="login" 
+            inputType="text"
+            title="Логин"
+            inputName="login"
+            required="1"
+        }}
+        {{>formField 
+            class="userSettingsForm__field" 
+            for="first_name" 
+            inputType="text"
+            title="Имя"
+            inputName="first_name"
+            required="1"
+        }}
+        {{>formField 
+            class="userSettingsForm__field" 
+            for="second_name"
+            inputType="text"
+            title="Фамилия"
+            inputName="second_name"
+            required="1"
+        }}
+        {{>formField 
+            class="userSettingsForm__field" 
+            for="display_name"
+            inputType="text"
+            title="Имя в чате"
+            inputName="display_name"
+            required="1"
+        }}
+        {{>formField 
+            class="userSettingsForm__field" 
+            for="phone"
+            inputType="tel"
+            title="Телефон"
+            inputName="phone"
+            required="1"
+        }}
+        {{>formField 
+            class="userSettingsForm__field" 
+            for="password"
+            inputType="password"
+            title="Пароль"
+            inputName="password"
+            required="1"
+        }}
+        {{>formField 
+            class="userSettingsForm__field" 
+            for="passwordRep"
+            inputType="password"
+            title="Пароль (еще раз)"
+            inputName="passwordRep"
+            required="1"
+        }}
+    </div>
+    <div class="userSettingsForm__btns">
+      {{>accentButton 
+        class="userSettingsForm__btn" 
+        type="submit" 
+        buttonText="Зарегистрироваться"
+      }}
+      {{>button 
+        class="userSettingsForm__btn" 
+        type="button"
+        buttonText="Войти"
+      }}
+    </div>
+  </div>
+</form>
