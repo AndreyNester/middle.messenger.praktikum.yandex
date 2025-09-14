@@ -3,6 +3,8 @@ import { renderRegisterPage } from './components/pages/registerPage/renderRegist
 import { renderUserSettingsPage } from './components/pages/userSettingsPage/renderUserSettingsPage';
 import { rednerNotFoundPage } from './components/pages/notFoundPage/rednerNotFoundPage';
 import { renderErrorPage } from './components/pages/errorPage/renderErrorsPage';
+import { Button } from './components/atoms/button/Button';
+import { render } from './lib/render';
 
 type TPage = 'signin' | 'register' | 'usersettings' | 'notfoundpage' | 'errorpage';
 interface IState {
@@ -23,19 +25,33 @@ export default class App {
   }
 
   render() {
-    const pages = {
-      signin: () => renderSignInPage({}),
-      register: () => renderRegisterPage({}),
-      usersettings: () => renderUserSettingsPage({}),
-      notfoundpage: () => rednerNotFoundPage({}),
-      errorpage: () => renderErrorPage({}),
-    };
-    if (this.appElement) {
-      if (pages[this.state.currentPage]) {
-        this.appElement.innerHTML = pages[this.state.currentPage]();
-      } else {
-        this.appElement.innerHTML = pages['notfoundpage']();
-      }
-    }
+    // const pages = {
+    //   signin: () => renderSignInPage({}),
+    //   register: () => renderRegisterPage({}),
+    //   usersettings: () => renderUserSettingsPage({}),
+    //   notfoundpage: () => rednerNotFoundPage({}),
+    //   errorpage: () => renderErrorPage({}),
+    // };
+    // if (this.appElement) {
+    //   if (pages[this.state.currentPage]) {
+    //     this.appElement.innerHTML = pages[this.state.currentPage]();
+    //   } else {
+    //     this.appElement.innerHTML = pages['notfoundpage']();
+    //   }
+    // }
+    const button = new Button({
+      className: 'my-class',
+      buttonText: 'Click me',
+    });
+
+    // app — это class дива в корне DOM
+    render('#app', button);
+
+    // Через секунду контент изменится сам, достаточно обновить пропсы
+    setTimeout(() => {
+      button.setProps({
+        buttonText: '[a[a[a]]]',
+      });
+    }, 1000);
   }
 }

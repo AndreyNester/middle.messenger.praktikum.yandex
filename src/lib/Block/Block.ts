@@ -40,6 +40,7 @@ abstract class Block {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
+    eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
   }
 
   private _createResources() {
@@ -63,11 +64,23 @@ abstract class Block {
     this._eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  private _componentDidUpdate(oldProps: unknown, newProps: unknown) {
-    // ...
+  // private _componentDidUpdate(oldProps: unknown, newProps: unknown) {
+  //   // ...
+  // }
+
+  private _componentDidUpdate(oldProps: unknown, newProps: unknown): void {
+    const response = this.componentDidUpdate(oldProps, newProps);
+    if (!response) {
+      return;
+    }
+    this._render();
   }
 
-  componentDidUpdate(oldProps: unknown, newProps: unknown) {
+  // componentDidUpdate(oldProps: unknown, newProps: unknown) {
+  //   return true;
+  // }
+  protected componentDidUpdate(oldProps: unknown, newProps: unknown): boolean {
+    console.log(oldProps, newProps);
     return true;
   }
 
@@ -89,12 +102,13 @@ abstract class Block {
     // Используйте шаблонизатор из npm или напишите свой безопасный
     // Нужно компилировать не в строку (или делать это правильно),
     // либо сразу превращать в DOM-элементы и возвращать из compile DOM-ноду
+    console.log(block);
     this._element.innerHTML = block;
   }
 
   // Переопределяется пользователем. Необходимо вернуть разметку
   render(): string {
-    return ``;
+    return `<div>ppp</div>`;
   }
 
   getContent() {
