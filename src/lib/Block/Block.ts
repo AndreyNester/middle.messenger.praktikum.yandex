@@ -1,12 +1,13 @@
-import { IMeta, IProps, TBlockEvent, TEventKey, TTageName } from '@/types/Block';
+import { IMeta, IProps, TBlockEvent, TEventKey, TTageName, TPropKey } from '@/types/Block';
 import EventBus from '../EventBus/EventBus';
 
 // Нельзя создавать экземпляр данного класса
-class Block {
+abstract class Block {
   static EVENTS: Record<TEventKey, TBlockEvent> = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
     FLOW_RENDER: 'flow:render',
+    FLOW_CDU: 'flow:component-did-update',
   };
 
   private _element: HTMLElement = document.createElement('span'); // Загулшка для TS
@@ -35,13 +36,13 @@ class Block {
     eventBus.emit(Block.EVENTS.INIT);
   }
 
-  _registerEvents(eventBus: EventBus<TBlockEvent>) {
+  private _registerEvents(eventBus: EventBus<TBlockEvent>) {
     eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
     eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
     eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
   }
 
-  _createResources() {
+  private _createResources() {
     const { tagName } = this._meta;
     this._element = this._createDocumentElement(tagName);
   }
@@ -51,17 +52,18 @@ class Block {
     this._eventBus().emit(Block.EVENTS.FLOW_RENDER);
   }
 
-  _componentDidMount() {
+  private _componentDidMount() {
     this.componentDidMount();
   }
 
+  // Реализуется в расширенном классе
   componentDidMount(oldProps?: unknown) {}
 
   dispatchComponentDidMount() {
     this._eventBus().emit(Block.EVENTS.FLOW_CDM);
   }
 
-  _componentDidUpdate(oldProps: unknown, newProps: unknown) {
+  private _componentDidUpdate(oldProps: unknown, newProps: unknown) {
     // ...
   }
 
@@ -81,7 +83,7 @@ class Block {
     return this._element;
   }
 
-  _render() {
+  private _render() {
     const block = this.render();
     // Это небезопасный метод для упрощения логики
     // Используйте шаблонизатор из npm или напишите свой безопасный
@@ -99,15 +101,26 @@ class Block {
     return this.element;
   }
 
-  _makePropsProxy(props: IProps) {
-    // Ещё один способ передачи this, но он больше не применяется с приходом ES6+
+  private _makePropsProxy(props: IProps): any {
     const self = this;
-
-    // Здесь вам предстоит реализовать метод
-    return props;
+    return new Proxy(props, {
+      get(target: IProps, prop: TPropKey) {
+        const value = target[prop];
+        return typeof value === 'function' ? value.bind(target) : value;
+      },
+      set(target: IProps, prop: TPropKey, value: unknown) {
+        const oldTarget = { ...target };
+        target[prop] = value;
+        self._eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
+        return true;
+      },
+      deleteProperty() {
+        throw new Error('No access');
+      },
+    });
   }
 
-  _createDocumentElement(tagName: TTageName): HTMLElement {
+  private _createDocumentElement(tagName: TTageName): HTMLElement {
     // Можно сделать метод, который через фрагменты в цикле создаёт сразу несколько блоков
     return document.createElement(tagName);
   }
