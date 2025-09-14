@@ -1,13 +1,13 @@
 import { TCallback, TEvent } from '@/types/EventBus';
 
-export default class EventBus {
-  public listeners: Partial<Record<TEvent, TCallback[]>>;
+export default class EventBus<T extends string> {
+  public listeners: Partial<Record<T, TCallback[]>>;
 
   constructor() {
     this.listeners = {};
   }
 
-  on(event: TEvent, callback: TCallback): void {
+  on(event: T, callback: TCallback): void {
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
@@ -15,7 +15,7 @@ export default class EventBus {
     this.listeners[event].push(callback);
   }
 
-  off(event: TEvent, callback: TCallback): void {
+  off(event: T, callback: TCallback): void {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
@@ -23,7 +23,7 @@ export default class EventBus {
     this.listeners[event] = this.listeners[event].filter((listener) => listener !== callback);
   }
 
-  emit(event: TEvent, ...args: unknown[]): void {
+  emit(event: T, ...args: unknown[]): void {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
